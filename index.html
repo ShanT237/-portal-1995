@@ -28,10 +28,15 @@ background-position:center;
 overflow:hidden;
 }
 
+/* caja central */
+
 .container{
 max-width:600px;
 padding:40px;
-z-index:2;
+z-index:10;
+background:rgba(255,255,255,0.6);
+border-radius:20px;
+backdrop-filter: blur(5px);
 }
 
 h1{
@@ -79,48 +84,22 @@ display:none;
 margin-top:30px;
 }
 
-/* zorritos */
+/* objetos flotantes */
 
-.fox{
+.obj{
 position:absolute;
-font-size:40px;
-animation:flotar 10s infinite linear;
-opacity:0.8;
+opacity:0.9;
+animation:flotar 10s infinite ease-in-out;
 }
 
-.fox:nth-child(1){left:10%; top:80%; animation-duration:14s;}
-.fox:nth-child(2){left:80%; top:70%; animation-duration:18s;}
-.fox:nth-child(3){left:60%; top:90%; animation-duration:16s;}
+.small{font-size:25px;}
+.medium{font-size:35px;}
+.big{font-size:50px;}
 
 @keyframes flotar{
-0%{transform:translateY(0);}
-50%{transform:translateY(-40px);}
-100%{transform:translateY(0);}
-}
-
-/* libros */
-
-.book{
-position:absolute;
-font-size:32px;
-animation:volar 20s infinite linear;
-opacity:0.7;
-}
-
-.book:nth-child(4){left:5%; top:40%;}
-.book:nth-child(5){left:90%; top:30%;}
-.book:nth-child(6){left:70%; top:10%;}
-
-@keyframes volar{
-
-0%{
-transform:translateX(-100px) rotate(0deg);
-}
-
-100%{
-transform:translateX(120vw) rotate(360deg);
-}
-
+0%{transform:translateY(0px);}
+50%{transform:translateY(-35px);}
+100%{transform:translateY(0px);}
 }
 
 </style>
@@ -133,15 +112,36 @@ transform:translateX(120vw) rotate(360deg);
 <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<!-- zorritos -->
-<div class="fox">🦊</div>
-<div class="fox">🦊</div>
-<div class="fox">🦊</div>
+<!-- zorros -->
+<div class="obj big" style="left:10%;top:80%;">🦊</div>
+<div class="obj medium" style="left:85%;top:70%;">🦊</div>
+<div class="obj small" style="left:60%;top:85%;">🦊</div>
 
 <!-- libros -->
-<div class="book">📖</div>
-<div class="book">📚</div>
-<div class="book">📖</div>
+<div class="obj medium" style="left:5%;top:30%;">📖</div>
+<div class="obj medium" style="left:75%;top:10%;">📚</div>
+<div class="obj small" style="left:60%;top:40%;">📖</div>
+
+<!-- rosas -->
+<div class="obj medium" style="left:20%;top:60%;">🌹</div>
+<div class="obj small" style="left:60%;top:50%;">🌹</div>
+<div class="obj small" style="left:40%;top:75%;">🌹</div>
+
+<!-- nubes -->
+<div class="obj big" style="left:40%;top:15%;">☁️</div>
+<div class="obj medium" style="left:70%;top:25%;">☁️</div>
+<div class="obj small" style="left:15%;top:10%;">☁️</div>
+
+<!-- escobas -->
+<div class="obj medium" style="left:30%;top:85%;">🧹</div>
+<div class="obj small" style="left:80%;top:40%;">🧹</div>
+<div class="obj small" style="left:55%;top:65%;">🧹</div>
+
+<!-- sombreros 👒 -->
+<div class="obj medium" style="left:50%;top:5%;">👒</div>
+<div class="obj small" style="left:15%;top:20%;">👒</div>
+<div class="obj small" style="left:75%;top:35%;">👒</div>
+<div class="obj medium" style="left:35%;top:65%;">👒</div>
 
 <div class="container">
 
@@ -212,9 +212,7 @@ alert("Las palabras aún no son correctas 🌿");
 }
 
 function abrir(){
-
 window.location.href="AQUI_TU_LINK_DE_DRIVE";
-
 }
 
 </script>
