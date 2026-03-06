@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Un pequeño acertijo</title>
+<style>
+body{
+font-family: Arial;
+text-align:center;
+margin-top:100px;
+}
+input{
+padding:10px;
+margin:10px;
+}
+button{
+padding:10px 20px;
+}
+#contenido{
+display:none;
+margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Introduce las dos llaves</h2>
+
+<input id="clave1" placeholder="Primera llave">
+<br>
+<input id="clave2" placeholder="Segunda llave">
+<br>
+
+<button onclick="verificar()">Desbloquear</button>
+
+<div id="contenido">
+<h3>Lo lograste ❤️</h3>
+
+<p>Si estás viendo esto es porque encontraste
+las dos llaves.</p>
+
+<a href="AQUI_LINK_VIDEO">Ver video</a>
+<br><br>
+<a href="AQUI_LINK_CARTA">Leer carta</a>
+<br><br>
+<a href="AQUI_LINK_CUPON">Tu cupón</a>
+
+</div>
+
+<script>
+function verificar(){
+
+let c1=document.getElementById("clave1").value;
+let c2=document.getElementById("clave2").value;
+
+if(c1=="palabra1" && c2=="palabra2"){
+document.getElementById("contenido").style.display="block";
+}else{
+alert("Las llaves no son correctas");
+}
+
+}
+</script>
+
+</body>
+</html>
