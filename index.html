@@ -1,65 +1,172 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<title>Un pequeño acertijo</title>
+<meta charset="UTF-8">
+<title>Una pequeña puerta</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&family=Playfair+Display&display=swap" rel="stylesheet">
+
 <style>
+
 body{
-font-family: Arial;
-text-align:center;
-margin-top:100px;
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    font-family:'Quicksand', sans-serif;
+
+    background:linear-gradient(
+        rgba(255,255,255,0.85),
+        rgba(255,255,255,0.9)
+    ),
+    url("https://images.unsplash.com/photo-1468327768560-75b778cbb551");
+
+    background-size:cover;
+    background-position:center;
 }
+
+.container{
+    max-width:600px;
+    padding:40px;
+}
+
+h1{
+    font-family:'Playfair Display', serif;
+    font-size:40px;
+    color:#2f3e2f;
+}
+
+p{
+    font-size:18px;
+    line-height:1.7;
+    color:#3d4a3d;
+}
+
 input{
-padding:10px;
-margin:10px;
+    margin-top:15px;
+    padding:12px;
+    width:80%;
+    border-radius:20px;
+    border:1px solid #ccc;
+    font-size:16px;
 }
+
 button{
-padding:10px 20px;
+    margin-top:25px;
+    padding:15px 30px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+
+    background:#8fbf8f;
+    color:white;
+    cursor:pointer;
+
+    transition:0.3s;
 }
-#contenido{
-display:none;
-margin-top:40px;
+
+button:hover{
+    background:#6ea96e;
+    transform:scale(1.05);
 }
+
+#regalo{
+    display:none;
+    margin-top:30px;
+}
+
+.flower{
+    font-size:30px;
+}
+
 </style>
 </head>
 
 <body>
 
-<h2>Introduce las dos llaves</h2>
+<!-- música -->
+<audio autoplay loop>
+<source src="musica.mp3" type="audio/mpeg">
+</audio>
 
-<input id="clave1" placeholder="Primera llave">
+<div class="container">
+
+<div class="flower">🌼🌿</div>
+
+<h1>Una pequeña puerta</h1>
+
+<p>
+Entre páginas, caminos y flores silvestres  
+hay historias que solo existen cuando  
+dos personas deciden caminar juntas.
+</p>
+
+<p>
+Dicen que lo esencial es invisible a los ojos...  
+pero a veces se esconde detrás de dos palabras.
+</p>
+
+<input id="clave1" placeholder="Primera clave">
+<input id="clave2" placeholder="Segunda clave">
+
 <br>
-<input id="clave2" placeholder="Segunda llave">
-<br>
 
-<button onclick="verificar()">Desbloquear</button>
+<button onclick="verificar()">Abrir la puerta</button>
 
-<div id="contenido">
-<h3>Lo lograste ❤️</h3>
+<div id="regalo">
 
-<p>Si estás viendo esto es porque encontraste
-las dos llaves.</p>
+<p>
+✨ Lo lograste.  
+Has encontrado el camino.
+</p>
 
-<a href="AQUI_LINK_VIDEO">Ver video</a>
-<br><br>
-<a href="AQUI_LINK_CARTA">Leer carta</a>
-<br><br>
-<a href="AQUI_LINK_CUPON">Tu cupón</a>
+<p>
+Ahora puedes abrir tu regalo.
+</p>
+
+<button onclick="abrir()">🌷 Abrir regalo</button>
+
+</div>
 
 </div>
 
 <script>
+
+function normalizar(texto){
+return texto
+.toLowerCase()
+.replace(/\s+/g,' ')
+.trim();
+}
+
 function verificar(){
 
-let c1=document.getElementById("clave1").value;
-let c2=document.getElementById("clave2").value;
+let c1 = normalizar(document.getElementById("clave1").value);
+let c2 = normalizar(document.getElementById("clave2").value);
 
-if(c1=="palabra1" && c2=="palabra2"){
-document.getElementById("contenido").style.display="block";
+let clave1Correcta = (c1 === "26 de mayo" || c1 === "26 mayo");
+let clave2Correcta = (c2 === "somewhere only we know");
+
+if(clave1Correcta && clave2Correcta){
+
+document.getElementById("regalo").style.display="block";
+
 }else{
-alert("Las llaves no son correctas");
+
+alert("Las palabras aún no son las correctas 🌿");
+
 }
 
 }
+
+function abrir(){
+
+window.location.href="AQUI_TU_LINK_DE_DRIVE";
+
+}
+
 </script>
 
 </body>
